@@ -28,7 +28,7 @@ const createTable = () => {
   }
 
    let nowDate = new Date();
-   let today = nowDate.getDate(); //поточний день
+   //let today = nowDate.getDate(); //поточний день
    let currentMonth = nowDate.getMonth(); //поточний month
    let currentYear = nowDate.getFullYear(); // поточний year
    let temp = new Date(currentYear, currentMonth + 1, 0);
@@ -41,6 +41,15 @@ const createTable = () => {
      renderCalendar();
    }
    document.getElementById('monthControlButtons').appendChild(nextButton);
+
+   let currButton = document.createElement('button');
+   currButton.innerHTML = 'Current month';
+   currButton.onclick = () => {
+     currentMonth = nowDate.getMonth();
+     renderCalendar();
+   }
+   document.getElementById('monthControlButtons').appendChild(currButton);
+
 
    let prevButton = document.createElement('button');
    prevButton.innerHTML = 'Prev month';
